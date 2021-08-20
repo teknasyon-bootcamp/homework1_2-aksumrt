@@ -7,6 +7,7 @@ $age = 25; // yaş (sene)
 
 $guess = "1470"; // Tahmin edilen değer
 
+
 /**
  * Bu ödevde bazal metabolizma hesaplaması yapacağız.
  * Yukarıdaki değişkenleri ve aşağıdaki formülü kullanarak
@@ -34,3 +35,39 @@ $guess = "1470"; // Tahmin edilen değer
  * 
  * yazması gerekiyor.
  */
+
+ // Coefficients was defined.
+const ManFactor = 88.362;
+const WomanFactor = 447.593;
+const ManWeightFactor = 13.397;
+const WomanWeightFactor = 9.247;
+const ManHeightFactor = 4.799;
+const WomanHeightFactor = 3.098;
+const ManAgeFactor = 5.677;
+const WomanAgeFactor = 4.330;
+
+// Gender Decision Section
+if($gender=="male")
+{
+$bmr = ManFactor + ManWeightFactor*$weight + ManHeightFactor*$height - ManAgeFactor*$age;
+}
+else
+{
+$bmr = WomanFactor + WomanWeightFactor*$weight + WomanHeightFactor*$height - WomanAgeFactor*$age;
+}
+
+echo "BMR: $bmr " . "<br>" ; 
+
+//BMR and guess Compare Section
+if($guess>$bmr)
+{
+echo "Tahmin değerinden düşük";
+}
+else if($guess==$bmr)
+{
+echo "Tahmin değerine eşit";
+}
+else
+{
+echo "Tahmin değerinden büyük";
+}
